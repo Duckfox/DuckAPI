@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Pixelmon-1.12.2-8.4.3-server">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/Pixelmon-1.12.2-8.4.3-server.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
