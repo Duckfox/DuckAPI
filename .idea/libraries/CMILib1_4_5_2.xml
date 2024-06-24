@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CMILib1.4.5.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/CMILib1.4.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

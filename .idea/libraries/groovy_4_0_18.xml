@@ -1,0 +1,72 @@
+<component name="libraryTable">
+  <library name="groovy-4.0.18">
+    <CLASSES>
+      <root url="jar://F:/Groovy/lib/ant-1.10.14.jar!/" />
+      <root url="jar://F:/Groovy/lib/ant-antlr-1.10.14.jar!/" />
+      <root url="jar://F:/Groovy/lib/ant-junit-1.10.14.jar!/" />
+      <root url="jar://F:/Groovy/lib/ant-launcher-1.10.14.jar!/" />
+      <root url="jar://F:/Groovy/lib/commons-cli-1.6.0.jar!/" />
+      <root url="jar://F:/Groovy/lib/gpars-1.2.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-ant-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-astbuilder-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-cli-commons-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-cli-picocli-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-console-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-contracts-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-datetime-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-dateutil-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-docgenerator-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-ginq-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-groovydoc-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-groovysh-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-jmx-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-json-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-jsr223-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-macro-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-macro-library-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-nio-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-servlet-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-sql-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-swing-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-templates-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-test-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-test-junit5-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-testng-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-toml-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-typecheckers-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-xml-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/groovy-yaml-4.0.18.jar!/" />
+      <root url="jar://F:/Groovy/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://F:/Groovy/lib/ivy-2.5.2.jar!/" />
+      <root url="jar://F:/Groovy/lib/jackson-annotations-2.16.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/jackson-core-2.16.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/jackson-databind-2.16.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/jackson-dataformat-toml-2.16.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/jackson-dataformat-yaml-2.16.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/jansi-2.4.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/javaparser-core-3.25.8.jar!/" />
+      <root url="jar://F:/Groovy/lib/jcommander-1.78.jar!/" />
+      <root url="jar://F:/Groovy/lib/jline-2.14.6.jar!/" />
+      <root url="jar://F:/Groovy/lib/jquery-3.5.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/jsr166y-1.7.0.jar!/" />
+      <root url="jar://F:/Groovy/lib/junit-4.13.2.jar!/" />
+      <root url="jar://F:/Groovy/lib/junit-jupiter-api-5.10.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/junit-jupiter-engine-5.10.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/junit-platform-commons-1.10.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/junit-platform-engine-1.10.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/junit-platform-launcher-1.10.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/multiverse-core-0.7.0.jar!/" />
+      <root url="jar://F:/Groovy/lib/mxparser-1.2.2.jar!/" />
+      <root url="jar://F:/Groovy/lib/opentest4j-1.3.0.jar!/" />
+      <root url="jar://F:/Groovy/lib/org.abego.treelayout.core-1.0.3.jar!/" />
+      <root url="jar://F:/Groovy/lib/qdox-1.12.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/slf4j-api-2.0.11.jar!/" />
+      <root url="jar://F:/Groovy/lib/snakeyaml-2.2.jar!/" />
+      <root url="jar://F:/Groovy/lib/testng-7.5.1.jar!/" />
+      <root url="jar://F:/Groovy/lib/xstream-1.4.20.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
