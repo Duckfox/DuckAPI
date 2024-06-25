@@ -46,4 +46,20 @@ public class RandomUtil {
     public static <T> T getRandomElement(List<T> list){
         return list.get(random.nextInt(list.size()));
     }
+    /**
+     * 包头不包尾的随机数
+     * @param min 最小值
+     * @param max 最大值
+     * */
+    public static int getRandomInt(int min, int max){
+        return min + random.nextInt(max - min);
+    }
+    /**
+    * 包头包尾的随机数
+     * @param min 最小值
+     * @param max 最大值
+    * */
+    public static int getRandomIntInclusive(int min, int max){
+        return min + random.nextInt((max - min) + 1);
+    }
 }
