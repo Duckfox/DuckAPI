@@ -2,5 +2,6 @@
 *.log
 *.lock
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 build
 .idea
