@@ -1,5 +1,6 @@
 # DuckAPI
 ### 基于Bukkit的插件，作为我插件的前置插件使用
+<!--
 Gradle
 ```groovy
 repositories {
@@ -29,3 +30,5 @@ Maven
         </dependency>
     </dependencies>
 ```
+-->
+
