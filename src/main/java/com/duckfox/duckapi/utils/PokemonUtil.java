@@ -4,11 +4,13 @@ import com.pixelmonmod.pixelmon.Pixelmon;
 import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.enums.EnumSpecies;
 import com.pixelmonmod.pixelmon.items.ItemPixelmonSprite;
+import com.pixelmonmod.pixelmon.items.ItemUIElement;
 import com.pixelmonmod.pixelmon.storage.PlayerPartyStorage;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +38,13 @@ public class PokemonUtil {
             speciesList.add(enumSpecies);
         }
         return speciesList;
+    }
+    public static ItemStack getTextInfo(String image, Integer sizeWeight, Integer sizeHeight, Integer colorR, Integer colorG, Integer colorB, Integer colorA, String text, Double TextureSizeWeight, Double TextureSizeHeight, Double TextScale, Integer PosOffsetX, Integer PosOffsetY) {
+        net.minecraft.item.ItemStack itemStack = ItemUIElement.builder().setImage(image).setSize(sizeWeight, sizeHeight).setColor(colorR, colorG, colorB, colorA).setText(text).setTextureSize(Float.valueOf(String.valueOf(TextureSizeWeight)).floatValue(), Float.valueOf(String.valueOf(TextureSizeHeight)).floatValue()).setTextScale(Float.valueOf(String.valueOf(TextScale)).floatValue()).setPosOffset(PosOffsetX, PosOffsetY).build();
+        ItemStack pokeItem = CraftItemStack.asBukkitCopy(itemStack);
+        ItemMeta itemMeta = pokeItem.getItemMeta();
+        itemMeta.setDisplayName(text);
+        pokeItem.setItemMeta(itemMeta);
+        return pokeItem;
     }
 }

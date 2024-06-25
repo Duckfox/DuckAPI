@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com'
-version = '2.7'
+version = '2.72'
 
 repositories {
     mavenCentral()
@@ -24,13 +24,16 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url "https://raw.github.com/Duckfox/maven-repository/master/"
+    }
 }
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT"
     compileOnly 'me.clip:placeholderapi:2.11.3'
-    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly "curse.maven:pixelmon842-389487:3794035"
+    implementation 'org.catmc:catserversrg:11c12cd'
+    implementation 'com.pixelmonmod:pixelmon:8.4.3'
 }
 
 def targetJavaVersion = 8
