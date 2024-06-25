@@ -1,8 +1,0 @@
-name: DuckAPI
-version: '2.7'
-main: com.duckfox.duckapi.DuckAPI
-softdepend:
-  - PlaceholderAPI
-commands:
-  DuckAPI:
-    description: dapi
