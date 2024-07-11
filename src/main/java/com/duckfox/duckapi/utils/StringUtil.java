@@ -22,7 +22,7 @@ public class StringUtil {
     }
 
     public static String format(String str, Player player, String... args) {
-        return format(papi(str, player), args);
+        return papi(format(str, args), player);
     }
 
     public static String format(String str, String... args) {
@@ -50,20 +50,21 @@ public class StringUtil {
         }
         return original;
     }
-    public static List<String> splitStr(String input,Pattern pattern){
+
+    public static List<String> splitStr(String input, Pattern pattern) {
         ArrayList<String> list = new ArrayList<>();
         Matcher matcher = pattern.matcher(input);
         int start = 0;
         int end = 0;
-        while (matcher.find(start)){
-            if (end < matcher.start()){
+        while (matcher.find(start)) {
+            if (end < matcher.start()) {
                 list.add(input.substring(end, matcher.start()));
             }
             list.add(matcher.group());
             start = matcher.end();
             end = matcher.end();
         }
-        if (start < input.length()){
+        if (start < input.length()) {
             list.add(input.substring(start));
         }
         return list;
