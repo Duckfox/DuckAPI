@@ -6,6 +6,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.file.Files;
 
 public class FileUtil {
@@ -40,5 +45,15 @@ public class FileUtil {
                 throw new RuntimeException(e);
             }
         }
+    }
+    public static URLClassLoader getClassLoader(String url) throws NoSuchMethodException, MalformedURLException, InvocationTargetException, IllegalAccessException {
+        URLClassLoader classLoader = new URLClassLoader(new URL[]{}, ClassLoader.getSystemClassLoader());
+        Method method = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
+        if (!method.isAccessible()) {
+            method.setAccessible(true);
+        }
+        URL url1 = new URL("file:" + url);
+        method.invoke(classLoader, url1);
+        return classLoader;
     }
 }
