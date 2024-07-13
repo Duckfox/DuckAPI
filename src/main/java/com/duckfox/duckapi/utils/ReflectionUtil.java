@@ -1,7 +1,5 @@
 package com.duckfox.duckapi.utils;
 
-import javafx.application.Application;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -10,10 +8,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import java.util.jar.JarInputStream;
 
 public class ReflectionUtil {
     private ReflectionUtil() {
@@ -56,41 +53,63 @@ public class ReflectionUtil {
         return classLoader;
     }
 
-    public static List<Class<?>> getClasses(String jarFilePath, Class<?>... superClasses) {
-        List<Class<?>> classes = new ArrayList<>();
-        try {
-            File jarFile = new File(jarFilePath);
-            URL jarURL = jarFile.toURI().toURL();
-            URLClassLoader classLoader = new URLClassLoader(new URL[]{jarURL}, ClassLoader.getSystemClassLoader());
+    public static <T> List<Class<? extends T>> findClasses(File file, Class<T> clazz) throws IOException, ClassNotFoundException {
+        // 借鉴PlaceholderAPI插件中的me.clip.placeholderapi.util.FileUtil.findClass
+        if (!file.exists()) {
+            return null;
+        } else {
+            // 获取url
+            URL jar = file.toURI().toURL();
+            // 获取类加载器
+            URLClassLoader loader = new URLClassLoader(new URL[]{jar}, clazz.getClassLoader());
+            // 列表储存class字符串
+            List<String> matches = new ArrayList<>();
+            // 最终的class列表
+            List<Class<? extends T>> classes = new ArrayList<>();
+            JarInputStream stream = new JarInputStream(jar.openStream());
+            Throwable var7 = null;
 
-            JarFile jar = new JarFile(jarFilePath);
-            Enumeration<JarEntry> entries = jar.entries();
-            while (entries.hasMoreElements()) {
-                JarEntry entry = entries.nextElement();
-                String entryName = entry.getName();
-                if (entryName.endsWith(".class")) {
-                    String className = entryName.substring(0, entryName.length() - 6).replace("/", ".");
-                    try {
-                        Class<?> clazz = classLoader.loadClass(className);
-                        if (superClasses != null && superClasses.length > 0) {
-                            for (Class<?> aClass : superClasses) {
-                                if (aClass != null && aClass.isAssignableFrom(clazz)) {
-                                    classes.add(clazz);
-                                }
-                            }
-                        } else {
-                            classes.add(clazz);
-                        }
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
+            try {
+                JarEntry entry;
+                while ((entry = stream.getNextJarEntry()) != null) {
+                    String name = entry.getName();
+                    if (name.endsWith(".class")) {
+                        matches.add(name.substring(0, name.lastIndexOf(46)).replace('/', '.'));
                     }
                 }
+
+                for (String match : matches) {
+                    try {
+                        Class<?> loaded = loader.loadClass(match);
+                        if (clazz.isAssignableFrom(loaded)) {
+                            classes.add(loaded.asSubclass(clazz));
+                        }
+                    } catch (NoClassDefFoundError ignored) {
+                    }
+                }
+            } catch (Throwable var21) {
+                var7 = var21;
+                throw var21;
+            } finally {
+                if (var7 != null) {
+                    try {
+                        stream.close();
+                    } catch (Throwable var19) {
+                        var7.addSuppressed(var19);
+                    }
+                } else {
+                    stream.close();
+                }
+
             }
-            jar.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            if (classes.isEmpty()) {
+                loader.close();
+                return null;
+            } else {
+                return classes;
+            }
         }
-        return classes;
     }
 
 
