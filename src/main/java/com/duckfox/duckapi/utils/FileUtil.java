@@ -46,14 +46,4 @@ public class FileUtil {
             }
         }
     }
-    public static URLClassLoader getClassLoader(String url) throws NoSuchMethodException, MalformedURLException, InvocationTargetException, IllegalAccessException {
-        URLClassLoader classLoader = new URLClassLoader(new URL[]{}, ClassLoader.getSystemClassLoader());
-        Method method = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
-        if (!method.isAccessible()) {
-            method.setAccessible(true);
-        }
-        URL url1 = new URL("file:" + url);
-        method.invoke(classLoader, url1);
-        return classLoader;
-    }
 }
