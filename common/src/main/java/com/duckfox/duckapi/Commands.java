@@ -20,19 +20,6 @@ import java.util.regex.Pattern;
 public class Commands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
-        if (commandSender instanceof Player && commandSender.isOp()) {
-            Player player = (Player) commandSender;
-            if (args.length >= 1) {
-                if ("itemNBT".equalsIgnoreCase(args[0])) {
-                    ItemStack itemStack = player.getInventory().getItemInMainHand();
-                    if (itemStack == null || itemStack.getType() == Material.AIR) {
-                        return false;
-                    }
-                    player.sendMessage("以下是" + itemStack.getItemMeta().getDisplayName() + "的NBT数据:");
-                    player.sendMessage(NBTUtil.getNBT(itemStack).toString());
-                }
-            }
-        }
         return false;
     }
 

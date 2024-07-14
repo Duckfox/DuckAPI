@@ -6,7 +6,6 @@ import com.pixelmonmod.pixelmon.enums.EnumSpecies;
 import com.pixelmonmod.pixelmon.items.ItemPixelmonSprite;
 import com.pixelmonmod.pixelmon.items.ItemUIElement;
 import com.pixelmonmod.pixelmon.storage.PlayerPartyStorage;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -16,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Deprecated
+@SuppressWarnings("unused")
 public class PokemonUtil {
     private PokemonUtil() {
     }
@@ -42,7 +43,7 @@ public class PokemonUtil {
     }
 
     public static ItemStack getImageItem(String image, int sizeWeight, int sizeHeight, int colorR, int colorG, int colorB, int colorA, String text, double TextureSizeWeight, double TextureSizeHeight, double TextScale, int PosOffsetX, int PosOffsetY) {
-        net.minecraft.item.ItemStack itemStack = ItemUIElement.builder().setImage(image).setSize(sizeWeight, sizeHeight).setColor(colorR, colorG, colorB, colorA).setText(text).setTextureSize(Float.valueOf(String.valueOf(TextureSizeWeight)).floatValue(), Float.valueOf(String.valueOf(TextureSizeHeight)).floatValue()).setTextScale(Float.valueOf(String.valueOf(TextScale)).floatValue()).setPosOffset(PosOffsetX, PosOffsetY).build();
+        net.minecraft.item.ItemStack itemStack = ItemUIElement.builder().setImage(image).setSize(sizeWeight, sizeHeight).setColor(colorR, colorG, colorB, colorA).setText(text).setTextureSize(Float.parseFloat(String.valueOf(TextureSizeWeight)), Float.parseFloat(String.valueOf(TextureSizeHeight))).setTextScale(Float.parseFloat(String.valueOf(TextScale))).setPosOffset(PosOffsetX, PosOffsetY).build();
         ItemStack pokeItem = CraftItemStack.asBukkitCopy(itemStack);
         ItemMeta itemMeta = pokeItem.getItemMeta();
         itemMeta.setDisplayName(text);
@@ -51,7 +52,7 @@ public class PokemonUtil {
     }
 
     public static ItemStack getTextInfo(int sizeWeight, int sizeHeight, int colorR, int colorG, int colorB, int colorA, String text, double TextureSizeWeight, double TextureSizeHeight, double TextScale, int PosOffsetX, int PosOffsetY) {
-        net.minecraft.item.ItemStack itemStack = ItemUIElement.builder().setSize(sizeWeight, sizeHeight).setColor(colorR, colorG, colorB, colorA).setText(text).setTextureSize(Float.valueOf(String.valueOf(TextureSizeWeight)).floatValue(), Float.valueOf(String.valueOf(TextureSizeHeight)).floatValue()).setTextScale(Float.valueOf(String.valueOf(TextScale)).floatValue()).setPosOffset(PosOffsetX, PosOffsetY).build();
+        net.minecraft.item.ItemStack itemStack = ItemUIElement.builder().setSize(sizeWeight, sizeHeight).setColor(colorR, colorG, colorB, colorA).setText(text).setTextureSize(Float.parseFloat(String.valueOf(TextureSizeWeight)), Float.parseFloat(String.valueOf(TextureSizeHeight))).setTextScale(Float.parseFloat(String.valueOf(TextScale))).setPosOffset(PosOffsetX, PosOffsetY).build();
         ItemStack pokeItem = CraftItemStack.asBukkitCopy(itemStack);
         ItemMeta itemMeta = pokeItem.getItemMeta();
         itemMeta.setDisplayName(text);

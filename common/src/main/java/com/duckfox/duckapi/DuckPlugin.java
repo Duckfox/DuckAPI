@@ -4,6 +4,7 @@ import com.duckfox.duckapi.managers.ConfigManager;
 import com.duckfox.duckapi.managers.MessageManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@SuppressWarnings("unused")
 public abstract class DuckPlugin extends JavaPlugin {
     public MessageManager messageManager;
     public ConfigManager configManager;

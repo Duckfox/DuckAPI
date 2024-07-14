@@ -5,6 +5,8 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 
+@Deprecated
+@SuppressWarnings("unused")
 public class NBTUtil {
     private NBTUtil() {
     }

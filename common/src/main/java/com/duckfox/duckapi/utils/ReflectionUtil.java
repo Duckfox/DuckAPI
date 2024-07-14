@@ -91,6 +91,7 @@ public class ReflectionUtil {
                 var7 = var21;
                 throw var21;
             } finally {
+                loader.close();
                 if (var7 != null) {
                     try {
                         stream.close();
@@ -103,12 +104,7 @@ public class ReflectionUtil {
 
             }
 
-            if (classes.isEmpty()) {
-                loader.close();
-                return null;
-            } else {
-                return classes;
-            }
+            return classes;
         }
     }
 

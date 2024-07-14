@@ -10,6 +10,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
+@Deprecated
+@SuppressWarnings("unused")
 public class InventoryUtil {
     private InventoryUtil() {
     }
@@ -38,9 +40,9 @@ public class InventoryUtil {
             String name = StringUtil.format(itemSection.getString(key + ".name"));
             List<String> lore = StringUtil.format(itemSection.getStringList(key + ".lore"));
             if (name != null) itemMeta.setDisplayName(name);
-            if (lore != null) itemMeta.setLore(lore);
+            itemMeta.setLore(lore);
             itemStack.setItemMeta(itemMeta);
-            if (commands != null && !commands.isEmpty()) {
+            if (!commands.isEmpty()) {
                 itemStack = NBTUtil.writeStringsNBT(itemStack,
                         "plugin", plugin.getName(),
                         "configName", configName,
@@ -54,7 +56,7 @@ public class InventoryUtil {
 
     public static ItemStack getTextInfoWithImage(String image, Integer sizeWeight, Integer sizeHeight, Integer colorR, Integer colorG, Integer colorB, Integer colorA, String text, Double TextureSizeWeight, Double TextureSizeHeight, Double TextScale, Integer PosOffsetX, Integer PosOffsetY) {
         net.minecraft.item.ItemStack itemStack = ItemUIElement.builder().setImage(image).setSize(sizeWeight, sizeHeight).setColor(colorR, colorG, colorB, colorA).setText(text).setTextureSize(Float.valueOf(String.valueOf(TextureSizeWeight)), Float.valueOf(String.valueOf(TextureSizeHeight))).setTextScale(Float.valueOf(String.valueOf(TextScale))).setPosOffset(PosOffsetX, PosOffsetY).build();
-        ItemStack pokeItem = CraftItemStack.asBukkitCopy((net.minecraft.item.ItemStack) itemStack);
+        ItemStack pokeItem = CraftItemStack.asBukkitCopy(itemStack);
         ItemMeta itemMeta = pokeItem.getItemMeta();
         itemMeta.setDisplayName(text);
         pokeItem.setItemMeta(itemMeta);
