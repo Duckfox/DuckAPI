@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 
+@SuppressWarnings("unused")
 public interface IVersionController {
     Object getSpeciesFromDex(int dex);
     int getDexFromSpecies(Object species);

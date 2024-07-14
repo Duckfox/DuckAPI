@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    compileOnly 'org.bukkit:craftbukkit:1.16.5'
+    compileOnly 'com.pixelmonmod:pixelmon:9.1.11'
+    implementation project(path:':common')
+    compileOnly 'net.minecraftforge:forge:1.16.5'
+    compileOnly 'net.minecraft:minecraftserver:1.16.5'
+}
+
+test {
+    useJUnitPlatform()
+}
+shadowJar{
+    mergeServiceFiles()
+    archiveBaseName.set(this.rootProject.name+"-"+this.project.name)
+    archiveVersion.set(this.version as String)
+    manifest{
+        attributes 'Main-Class':this.group
+    }
+}

@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    compileOnly 'com.pixelmonmod:pixelmon:8.4.3'
+    compileOnly 'org.catmc:catserversrg:11c12cd'
+}
+
+test {
+    useJUnitPlatform()
+}
